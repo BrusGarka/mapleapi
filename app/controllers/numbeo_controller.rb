@@ -3,7 +3,7 @@ class NumbeoController < ApplicationController
     require 'open-uri'
 
     def index
-        url = "https://www.numbeo.com/cost-of-living/in/" + params[:city]
+        url = "https://www.numbeo.com/cost-of-living/in/" + params[:city].capitalize
         doc = Nokogiri::HTML(open(url))
         pathPriceValue = doc.xpath("//*[contains(concat( ' ', @class, ' ' ), concat( ' ', 'priceValue', ' ' ))]")
 
@@ -12,11 +12,12 @@ class NumbeoController < ApplicationController
             prices << a.children.text.split(" C$").first.split().first.sub(",","").to_d
         end
 
-        @city = City.find_by(name: params[:city])
+        @city = City.find_by(name: params[:city].capitalize)
 
-        @city = City.create(prepare_params(params[:city], prices))
+        if @city.blank?
+            @city = City.create(prepare_params(params[:city].capitalize, prices))
+        end
 
-        byebug
         render json: @city
     end
 
