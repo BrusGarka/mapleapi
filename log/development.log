@@ -632,3 +632,83 @@ Completed 200 OK in 47194ms (Views: 1.6ms | ActiveRecord: 5.4ms)
   [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to City (20170325200119)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "cities" ("id" serial primary key, "name" character varying, "aluguel" decimal, "busao" decimal, "mercado" decimal, "energia" decimal, "internet" decimal, "academia" decimal, "role" decimal, "roupas" decimal, "salariomedio" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170325200119"]]
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnToCity (20170325210011)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cities" ADD "monthly_cost" decimal[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170325210011"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-26 14:13:32 UTC], ["updated_at", 2017-03-26 14:13:32 UTC]]
+  [1m[35m (22.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/numbeo" for 127.0.0.1 at 2017-03-26 11:14:15 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NumbeoController#index as HTML
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/numbeo_controller.rb:6:in `+'
+app/controllers/numbeo_controller.rb:6:in `index'
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.6ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (142.0ms)
+Started GET "/numbeo?city=Toronto" for 127.0.0.1 at 2017-03-26 11:14:27 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Toronto"}
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = $1 LIMIT $2[0m  [["name", "Toronto"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "aluguel", "busao", "mercado", "energia", "internet", "academia", "role", "roupas", "salariomedio", "created_at", "updated_at", "monthly_cost") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Toronto"], ["aluguel", #<BigDecimal:45fc3b0,'0.117306E4',18(18)>], ["busao", #<BigDecimal:45fc310,'0.283E3',9(36)>], ["mercado", #<BigDecimal:45fc2e8,'0.4038E3',18(36)>], ["energia", #<BigDecimal:45fc270,'0.12419E3',18(18)>], ["internet", #<BigDecimal:45fc180,'0.11488E3',18(36)>], ["academia", #<BigDecimal:45fc158,'0.10612E3',18(36)>], ["role", #<BigDecimal:45fc090,'0.216E3',9(18)>], ["roupas", #<BigDecimal:45fc068,'0.100473E3',18(36)>], ["salariomedio", #<BigDecimal:45fc040,'0.342017E4',18(18)>], ["created_at", 2017-03-26 14:15:00 UTC], ["updated_at", 2017-03-26 14:15:00 UTC], ["monthly_cost", #<BigDecimal:45f9c78,'0.2521523E4',18(27)>]]
+  [1m[35m (14.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 34393ms (Views: 0.9ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/numbeo?city=Toronto" for 127.0.0.1 at 2017-03-26 11:15:53 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Toronto"}
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = $1 LIMIT $2[0m  [["name", "Toronto"], ["LIMIT", 1]]
+Completed 200 OK in 1169ms (Views: 2.6ms | ActiveRecord: 4.4ms)
+
+
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+Started GET "/numbeo?city=Vancouver" for 127.0.0.1 at 2017-03-26 11:16:33 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Vancouver"}
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = $1 LIMIT $2[0m  [["name", "Vancouver"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "aluguel", "busao", "mercado", "energia", "internet", "academia", "role", "roupas", "salariomedio", "created_at", "updated_at", "monthly_cost") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Vancouver"], ["aluguel", #<BigDecimal:2336b78,'0.123493E4',18(18)>], ["busao", #<BigDecimal:23369c0,'0.182E3',9(27)>], ["mercado", #<BigDecimal:2336998,'0.45792E3',18(36)>], ["energia", #<BigDecimal:2336948,'0.8294E2',18(18)>], ["internet", #<BigDecimal:23368a8,'0.11654E3',18(36)>], ["academia", #<BigDecimal:2336830,'0.9416E2',18(36)>], ["role", #<BigDecimal:23367e0,'0.211E3',9(18)>], ["roupas", #<BigDecimal:23367b8,'0.109365E3',18(36)>], ["salariomedio", #<BigDecimal:2336678,'0.299184E4',18(18)>], ["created_at", 2017-03-26 14:16:34 UTC], ["updated_at", 2017-03-26 14:16:34 UTC], ["monthly_cost", #<BigDecimal:2320120,'0.2488855E4',18(27)>]]
+  [1m[35m (54.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 1108ms (Views: 0.7ms | ActiveRecord: 56.6ms)
+
+
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/numbeo?city=Vancouver" for 127.0.0.1 at 2017-03-26 11:17:01 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Vancouver"}
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = $1 LIMIT $2[0m  [["name", "Vancouver"], ["LIMIT", 1]]
+Completed 200 OK in 983ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
