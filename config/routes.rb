@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :numbeo
   resources :city
   resources :cities
+  resources :provinces
 
 end

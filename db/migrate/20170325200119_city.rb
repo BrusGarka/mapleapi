@@ -1,4 +1,5 @@
-class City < ActiveRecord::Migration[5.0]
+class City < ActiveRecord::Migration[5.0]add_reference(:products, :supplier, polymorphic: true, index: true)
+
   def change
     create_table :cities do |t|
       t.string :name

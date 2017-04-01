@@ -1,4 +1,5 @@
 class City < ApplicationRecord
+    belongs_to :province
 
     before_save :sum_costs
 
