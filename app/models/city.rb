@@ -1,5 +1,4 @@
 class City < ApplicationRecord
-
     before_save :sum_costs
 
     def sum_costs
