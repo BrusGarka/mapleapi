@@ -1,5 +1,5 @@
 class City < ApplicationRecord
-    belongs_to :province
+    acts_as_paranoid
     before_save :sum_costs
 
     def sum_costs

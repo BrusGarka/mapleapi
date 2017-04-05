@@ -4,9 +4,8 @@ class NumbeoController < ApplicationController
 
     def index
         @city = City.find_by(name: params[:city].capitalize)
-
         if @city.blank?
-            @city = City.create(prepare_params(params[:city], collectNumbeo))
+            @city = City.create!(prepare_params(params[:city], collectNumbeo))
         end
 
         render json: @city
@@ -21,6 +20,7 @@ class NumbeoController < ApplicationController
         pathPriceValue.each do |a|
              prices << a.children.text.split(" C$").first.split().first.sub(",","").to_d
         end
+
         return prices
     end
 
