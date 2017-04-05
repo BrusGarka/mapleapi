@@ -1,6 +1,9 @@
 class City < ApplicationRecord
+<<<<<<< HEAD
     belongs_to :province
 
+=======
+>>>>>>> release/Cities
     before_save :sum_costs
 
     def sum_costs

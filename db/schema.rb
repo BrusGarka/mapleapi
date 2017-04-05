@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170401144424) do
+=======
+ActiveRecord::Schema.define(version: 20170405180159) do
+>>>>>>> release/Cities
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "aluguel"
+    t.decimal  "aluguel_centro"
     t.decimal  "busao"
     t.decimal  "mercado"
     t.decimal  "energia"
@@ -26,10 +30,17 @@ ActiveRecord::Schema.define(version: 20170401144424) do
     t.decimal  "role"
     t.decimal  "roupas"
     t.decimal  "salariomedio"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.decimal  "monthly_cost"
     t.integer  "provinces_id"
+<<<<<<< HEAD
+=======
+    t.decimal  "mobile"
+    t.decimal  "restaurante"
+    t.decimal  "health_care"
+    t.decimal  "aluguel_fora"
+>>>>>>> release/Cities
     t.index ["provinces_id"], name: "index_cities_on_provinces_id", using: :btree
   end
 
