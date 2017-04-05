@@ -1842,3 +1842,47 @@ Completed 200 OK in 44ms (Views: 37.8ms | ActiveRecord: 0.5ms)
 
 
 >>>>>>> release/Cities
+Started GET "/cities.json" for 127.0.0.1 at 2017-04-05 15:59:58 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+SyntaxError (/home/maia/projetos/maple/app/controllers/cities_controller.rb:3: syntax error, unexpected <<
+<<<<<<< HEAD
+  ^
+/home/maia/projetos/maple/app/controllers/cities_controller.rb:7: syntax error, unexpected ===, expecting end-of-input
+=======
+   ^):
+  
+app/controllers/cities_controller.rb:3: syntax error, unexpected <<
+app/controllers/cities_controller.rb:7: syntax error, unexpected ===, expecting end-of-input
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.5ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.7ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.8ms)
+Started GET "/cities.json" for 127.0.0.1 at 2017-04-05 16:00:37 -0300
+Processing by CitiesController#index as JSON
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/maia/projetos/maple/app/models/city.rb:2: syntax error, unexpected <<
+<<<<<<< HEAD
+  ^
+/home/maia/projetos/maple/app/models/city.rb:5: syntax error, unexpected ===, expecting keyword_end
+=======
+   ^):
+  
+app/models/city.rb:2: syntax error, unexpected <<
+app/models/city.rb:5: syntax error, unexpected ===, expecting keyword_end
+app/controllers/cities_controller.rb:3:in `index'
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.4ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.0ms)
