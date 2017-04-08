@@ -1841,6 +1841,7 @@ Processing by CitiesController#index as JSON
 Completed 200 OK in 44ms (Views: 37.8ms | ActiveRecord: 0.5ms)
 
 
+<<<<<<< HEAD
 >>>>>>> release/Cities
 Started GET "/cities.json" for 127.0.0.1 at 2017-04-05 15:59:58 -0300
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -2039,6 +2040,38 @@ byebug (9.0.6) lib/byebug/processors/command_processor.rb:134:in `repl'
 byebug (9.0.6) lib/byebug/processors/command_processor.rb:98:in `process_commands'
 byebug (9.0.6) lib/byebug/processors/command_processor.rb:78:in `at_return'
 byebug (9.0.6) lib/byebug/context.rb:128:in `at_return'
+=======
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCourses (20170406232832)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (79.6ms)[0m  [1m[35mCREATE TABLE "courses" ("id" serial primary key, "name" character varying, "school" character varying, "semesters" integer, "price" decimal, "degree" integer, "cities_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE  INDEX  "index_courses_on_cities_id" ON "courses"  ("cities_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170406232832"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/courses" for 127.0.0.1 at 2017-04-06 21:55:26 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+Completed 406 Not Acceptable in 27ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (CoursesController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []):
+  
+actionpack (5.0.2) lib/action_controller/metal/implicit_render.rb:43:in `default_render'
+actionpack (5.0.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.0.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.0.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.2) lib/abstract_controller/base.rb:188:in `process_action'
+>>>>>>> release/Release-Colleges
 actionpack (5.0.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
 actionpack (5.0.2) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
 activesupport (5.0.2) lib/active_support/callbacks.rb:126:in `call'
@@ -2108,6 +2141,7 @@ puma (3.8.2) lib/puma/server.rb:299:in `block in run'
 puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
   Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+<<<<<<< HEAD
   Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (178.3ms)
   Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (49.6ms)
@@ -2287,5 +2321,34 @@ Processing by CitiesController#show as JSON
   Rendering cities/show.json.jbuilder
   Rendered cities/show.json.jbuilder (1.5ms)
 Completed 200 OK in 23ms (Views: 15.8ms | ActiveRecord: 1.2ms)
+=======
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.5ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.9ms)
+Started GET "/courses.json" for 127.0.0.1 at 2017-04-06 21:55:34 -0300
+Processing by CoursesController#index as JSON
+  Rendering courses/index.json.jbuilder
+  Rendered courses/index.json.jbuilder (3.2ms)
+Completed 200 OK in 14ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cities.json" for 127.0.0.1 at 2017-04-06 21:58:30 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CitiesController#index as JSON
+  Rendering cities/index.json.jbuilder
+  Rendered cities/index.json.jbuilder (2.1ms)
+Completed 200 OK in 38ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses.json" for 127.0.0.1 at 2017-04-08 13:22:51 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as JSON
+  Rendering courses/index.json.jbuilder
+  Rendered courses/index.json.jbuilder (1.9ms)
+Completed 200 OK in 21ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+>>>>>>> release/Release-Colleges
 
 
