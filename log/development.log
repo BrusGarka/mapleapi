@@ -712,6 +712,98 @@ Completed 200 OK in 983ms (Views: 1.3ms | ActiveRecord: 0.4ms)
 
 
   [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+<<<<<<< HEAD
+Started GET "/numbeo?city=Toronto" for 127.0.0.1 at 2017-03-26 11:41:08 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Toronto"}
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = $1 LIMIT $2[0m  [["name", "Toronto"], ["LIMIT", 1]]
+Completed 200 OK in 1161ms (Views: 1.2ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/city" for 127.0.0.1 at 2017-03-26 15:34:24 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CityController#index as HTML
+  [1m[36mCity Load (1.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+Completed 200 OK in 52ms (Views: 30.9ms | ActiveRecord: 5.5ms)
+
+
+  [1m[36mCity Load (1.6ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "cities"."name" FROM "cities"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "cities"."name" FROM "cities"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "cities"."name" FROM "cities"[0m
+Started GET "/cities" for 127.0.0.1 at 2017-03-26 15:36:57 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (5.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CitiesController#index as HTML
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "cities"."name" FROM "cities"[0m
+Completed 200 OK in 24ms (Views: 0.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2017-03-26 15:37:38 -0300
+Processing by CitiesController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cities"."name" FROM "cities"[0m
+Completed 200 OK in 101ms (Views: 96.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2017-03-27 21:01:44 -0300
+Processing by CitiesController#index as HTML
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "cities"."name" FROM "cities"[0m
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2017-03-27 21:01:52 -0300
+Processing by CitiesController#index as HTML
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "cities"."name" FROM "cities"[0m
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 4.9ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProvinces (20170401144424)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (66.7ms)[0m  [1m[35mCREATE TABLE "provinces" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.1ms)[0m  [1m[35mALTER TABLE "cities" ADD "provinces_id" integer[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE  INDEX  "index_cities_on_provinces_id" ON "cities"  ("provinces_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170401144424"]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mProvince Load (0.8ms)[0m  [1m[34mSELECT "provinces".* FROM "provinces"[0m
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Alberta"], ["created_at", 2017-04-01 15:06:20 UTC], ["updated_at", 2017-04-01 15:06:20 UTC]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "British Columbia"], ["created_at", 2017-04-01 15:06:20 UTC], ["updated_at", 2017-04-01 15:06:20 UTC]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Manitoba"], ["created_at", 2017-04-01 15:06:20 UTC], ["updated_at", 2017-04-01 15:06:20 UTC]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "New Brunswick"], ["created_at", 2017-04-01 15:06:20 UTC], ["updated_at", 2017-04-01 15:06:20 UTC]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Newfoundland and Labrador"], ["created_at", 2017-04-01 15:06:20 UTC], ["updated_at", 2017-04-01 15:06:20 UTC]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Nova Scotia"], ["created_at", 2017-04-01 15:06:20 UTC], ["updated_at", 2017-04-01 15:06:20 UTC]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ontario"], ["created_at", 2017-04-01 15:06:20 UTC], ["updated_at", 2017-04-01 15:06:20 UTC]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Prince Edward Island"], ["created_at", 2017-04-01 15:06:20 UTC], ["updated_at", 2017-04-01 15:06:20 UTC]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Quebec"], ["created_at", 2017-04-01 15:06:20 UTC], ["updated_at", 2017-04-01 15:06:20 UTC]]
+  [1m[35m (41.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Saskatchewan"], ["created_at", 2017-04-01 15:06:22 UTC], ["updated_at", 2017-04-01 15:06:22 UTC]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+=======
   [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
@@ -1749,6 +1841,206 @@ Processing by CitiesController#index as JSON
 Completed 200 OK in 44ms (Views: 37.8ms | ActiveRecord: 0.5ms)
 
 
+<<<<<<< HEAD
+>>>>>>> release/Cities
+Started GET "/cities.json" for 127.0.0.1 at 2017-04-05 15:59:58 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+SyntaxError (/home/maia/projetos/maple/app/controllers/cities_controller.rb:3: syntax error, unexpected <<
+<<<<<<< HEAD
+  ^
+/home/maia/projetos/maple/app/controllers/cities_controller.rb:7: syntax error, unexpected ===, expecting end-of-input
+=======
+   ^):
+  
+app/controllers/cities_controller.rb:3: syntax error, unexpected <<
+app/controllers/cities_controller.rb:7: syntax error, unexpected ===, expecting end-of-input
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.5ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.7ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.8ms)
+Started GET "/cities.json" for 127.0.0.1 at 2017-04-05 16:00:37 -0300
+Processing by CitiesController#index as JSON
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/maia/projetos/maple/app/models/city.rb:2: syntax error, unexpected <<
+<<<<<<< HEAD
+  ^
+/home/maia/projetos/maple/app/models/city.rb:5: syntax error, unexpected ===, expecting keyword_end
+=======
+   ^):
+  
+app/models/city.rb:2: syntax error, unexpected <<
+app/models/city.rb:5: syntax error, unexpected ===, expecting keyword_end
+app/controllers/cities_controller.rb:3:in `index'
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.4ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.0ms)
+Started GET "/cities.json" for 127.0.0.1 at 2017-04-05 16:02:23 -0300
+Processing by CitiesController#index as JSON
+  Rendering cities/index.json.jbuilder
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  Rendered cities/index.json.jbuilder (40.9ms)
+Completed 200 OK in 107ms (Views: 38.2ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/cities/3.json" for 127.0.0.1 at 2017-04-05 16:02:29 -0300
+Processing by CitiesController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering cities/show.json.jbuilder
+  Rendered cities/show.json.jbuilder (1.6ms)
+Completed 200 OK in 15ms (Views: 5.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/numbeo?city=Toronto" for 127.0.0.1 at 2017-04-05 16:02:33 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Toronto"}
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = $1 LIMIT $2[0m  [["name", "Toronto"], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/numbeo?city=Montreal" for 127.0.0.1 at 2017-04-05 16:02:40 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Montreal"}
+  [1m[36mCity Load (3.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = $1 LIMIT $2[0m  [["name", "Montreal"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 1140ms (Views: 0.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/numbeo?city=Montreal" for 127.0.0.1 at 2017-04-05 16:04:22 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Montreal"}
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = $1 LIMIT $2[0m  [["name", "Montreal"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 972ms (Views: 0.5ms | ActiveRecord: 2.1ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDeletedAtCity (20170405190644)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "cities" ADD "deleted_at" timestamp[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_cities_on_deleted_at" ON "cities"  ("deleted_at")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170405190644"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mCity Load (0.8ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL[0m
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL[0m
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL[0m
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE ("cities"."deleted_at" IS NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (137.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "development"[0m
+  [1m[35m (248.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "test"[0m
+  [1m[35m (1410.0ms)[0m  [1m[35mCREATE DATABASE "development" ENCODING = 'utf8'[0m
+  [1m[35m (537.8ms)[0m  [1m[35mCREATE DATABASE "test" ENCODING = 'utf8'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (19.8ms)[0m  [1m[35mCREATE TABLE "cities" ("id" serial primary key, "name" character varying, "aluguel_centro" decimal, "busao" decimal, "mercado" decimal, "energia" decimal, "internet" decimal, "academia" decimal, "role" decimal, "roupas" decimal, "salariomedio" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "monthly_cost" decimal, "provinces_id" integer, "mobile" decimal, "restaurante" decimal, "health_care" decimal, "aluguel_fora" decimal, "deleted_at" timestamp)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_cities_on_deleted_at" ON "cities" USING btree ("deleted_at")[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE  INDEX  "index_cities_on_provinces_id" ON "cities" USING btree ("provinces_id")[0m
+  [1m[35m (30.4ms)[0m  [1m[35mCREATE TABLE "provinces" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170405190644)[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170325210011),
+(20170325200119),
+(20170401144424),
+(20170405180159);
+
+[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-05 19:08:35 UTC], ["updated_at", 2017-04-05 19:08:35 UTC]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (22.4ms)[0m  [1m[35mCREATE TABLE "cities" ("id" serial primary key, "name" character varying, "aluguel_centro" decimal, "busao" decimal, "mercado" decimal, "energia" decimal, "internet" decimal, "academia" decimal, "role" decimal, "roupas" decimal, "salariomedio" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "monthly_cost" decimal, "provinces_id" integer, "mobile" decimal, "restaurante" decimal, "health_care" decimal, "aluguel_fora" decimal, "deleted_at" timestamp)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_cities_on_deleted_at" ON "cities" USING btree ("deleted_at")[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_cities_on_provinces_id" ON "cities" USING btree ("provinces_id")[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "provinces" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170405190644)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170325210011),
+(20170325200119),
+(20170401144424),
+(20170405180159);
+
+[0m
+  [1m[35m (18.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-05 19:08:35 UTC], ["updated_at", 2017-04-05 19:08:35 UTC]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mCity Load (0.8ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL[0m
+Started GET "/numbeo?city=Montreal" for 127.0.0.1 at 2017-04-05 16:09:27 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Montreal"}
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."name" = $1 LIMIT $2[0m  [["name", "Montreal"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 1125ms (Views: 1.0ms | ActiveRecord: 5.3ms)
+
+
+  [1m[36mCity Load (0.8ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL[0m
+Started GET "/numbeo?city=Montreal" for 127.0.0.1 at 2017-04-05 16:10:45 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Montreal"}
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."name" = $1 LIMIT $2[0m  [["name", "Montreal"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 62667ms (ActiveRecord: 0.6ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `process_action'
+byebug (9.0.6) lib/byebug/helpers/eval.rb:59:in `eval'
+byebug (9.0.6) lib/byebug/helpers/eval.rb:59:in `safe_eval'
+byebug (9.0.6) lib/byebug/helpers/eval.rb:53:in `warning_eval'
+byebug (9.0.6) lib/byebug/helpers/eval.rb:29:in `block in multiple_thread_eval'
+byebug (9.0.6) lib/byebug/helpers/eval.rb:92:in `allowing_other_threads'
+byebug (9.0.6) lib/byebug/helpers/eval.rb:29:in `multiple_thread_eval'
+byebug (9.0.6) lib/byebug/processors/command_processor.rb:164:in `block in run_cmd'
+byebug (9.0.6) lib/byebug/processors/command_processor.rb:169:in `safely'
+byebug (9.0.6) lib/byebug/processors/command_processor.rb:160:in `run_cmd'
+byebug (9.0.6) lib/byebug/processors/command_processor.rb:134:in `repl'
+byebug (9.0.6) lib/byebug/processors/command_processor.rb:98:in `process_commands'
+byebug (9.0.6) lib/byebug/processors/command_processor.rb:78:in `at_return'
+byebug (9.0.6) lib/byebug/context.rb:128:in `at_return'
+=======
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770);[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
 Migrating to CreateCourses (20170406232832)
@@ -1779,6 +2071,7 @@ actionpack (5.0.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `bl
 actionpack (5.0.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
 actionpack (5.0.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
 actionpack (5.0.2) lib/abstract_controller/base.rb:188:in `process_action'
+>>>>>>> release/Release-Colleges
 actionpack (5.0.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
 actionpack (5.0.2) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
 activesupport (5.0.2) lib/active_support/callbacks.rb:126:in `call'
@@ -1848,6 +2141,187 @@ puma (3.8.2) lib/puma/server.rb:299:in `block in run'
 puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
   Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+<<<<<<< HEAD
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (178.3ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (49.6ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.1ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (296.7ms)
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL[0m
+Started GET "/numbeo?city=Montreal" for 127.0.0.1 at 2017-04-05 16:12:26 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Montreal"}
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."name" = $1 LIMIT $2[0m  [["name", "Montreal"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 1023ms (ActiveRecord: 6.5ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Province must exist):
+  
+app/controllers/numbeo_controller.rb:8:in `index'
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDeletedAtCity (20170405190644)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP INDEX  "index_cities_on_deleted_at"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cities" DROP "deleted_at"[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170405190644"]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMoreColumnToCity (20170405180159)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cities" RENAME COLUMN "aluguel_centro" TO "aluguel"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cities" DROP "aluguel_fora"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cities" DROP "health_care"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cities" DROP "restaurante"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "cities" DROP "mobile"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170405180159"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProvinces (20170401144424)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "cities" DROP "provinces_id"[0m
+  [1m[35m (3.4ms)[0m  [1m[35mDROP TABLE "provinces"[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170401144424"]]
+  [1m[35m (29.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (107.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "development"[0m
+  [1m[35m (110.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "test"[0m
+  [1m[35m (447.1ms)[0m  [1m[35mCREATE DATABASE "development" ENCODING = 'utf8'[0m
+  [1m[35m (521.0ms)[0m  [1m[35mCREATE DATABASE "test" ENCODING = 'utf8'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (39.3ms)[0m  [1m[35mCREATE TABLE "cities" ("id" serial primary key, "name" character varying, "aluguel" decimal, "busao" decimal, "mercado" decimal, "energia" decimal, "internet" decimal, "academia" decimal, "role" decimal, "roupas" decimal, "salariomedio" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "monthly_cost" decimal)[0m
+  [1m[35m (17.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170325210011)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170325200119);
+
+[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-05 19:15:32 UTC], ["updated_at", 2017-04-05 19:15:32 UTC]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (22.3ms)[0m  [1m[35mCREATE TABLE "cities" ("id" serial primary key, "name" character varying, "aluguel" decimal, "busao" decimal, "mercado" decimal, "energia" decimal, "internet" decimal, "academia" decimal, "role" decimal, "roupas" decimal, "salariomedio" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "monthly_cost" decimal)[0m
+  [1m[35m (20.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170325210011)[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170325200119);
+
+[0m
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-05 19:15:32 UTC], ["updated_at", 2017-04-05 19:15:32 UTC]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddMoreColumnToCity (20170405180159)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cities" ADD "mobile" decimal[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cities" ADD "restaurante" decimal[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cities" ADD "health_care" decimal[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cities" ADD "aluguel_fora" decimal[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "cities" RENAME COLUMN "aluguel" TO "aluguel_centro"[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170405180159"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDeletedAtCity (20170405190644)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cities" ADD "deleted_at" timestamp[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX  "index_cities_on_deleted_at" ON "cities"  ("deleted_at")[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170405190644"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/numbeo?city=Montreal" for 127.0.0.1 at 2017-04-05 16:16:34 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Montreal"}
+  [1m[36mCity Load (1.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."name" = $1 LIMIT $2[0m  [["name", "Montreal"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 1054ms (ActiveRecord: 9.6ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Province must exist):
+  
+app/controllers/numbeo_controller.rb:8:in `index'
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.5ms)
+Started GET "/numbeo?city=Montreal" for 127.0.0.1 at 2017-04-05 16:16:49 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Montreal"}
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."name" = $1 LIMIT $2[0m  [["name", "Montreal"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cities" ("name", "aluguel_centro", "busao", "mercado", "energia", "internet", "academia", "role", "roupas", "salariomedio", "created_at", "updated_at", "monthly_cost", "mobile", "restaurante", "health_care", "aluguel_fora") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["name", "Montreal"], ["aluguel_centro", #<BigDecimal:5092810,'0.97665E3',18(18)>], ["busao", #<BigDecimal:50927e8,'0.83E2',9(18)>], ["mercado", #<BigDecimal:50927c0,'0.43324E3',18(36)>], ["energia", #<BigDecimal:5092798,'0.889E2',18(18)>], ["internet", #<BigDecimal:5092770,'0.5425E2',18(18)>], ["academia", #<BigDecimal:5092748,'0.401E2',18(18)>], ["role", #<BigDecimal:5092720,'0.48E2',9(27)>], ["roupas", #<BigDecimal:50926f8,'0.97344E2',18(36)>], ["salariomedio", #<BigDecimal:50926d0,'0.274867E4',18(18)>], ["created_at", 2017-04-05 19:17:00 UTC], ["updated_at", 2017-04-05 19:17:00 UTC], ["monthly_cost", #<BigDecimal:5090150,'0.1821484E4',18(27)>], ["mobile", #<BigDecimal:50925b8,'0.34E0',9(18)>], ["restaurante", #<BigDecimal:5092590,'0.12E3',9(18)>], ["health_care", #<BigDecimal:5092568,'0.65E2',9(36)>], ["aluguel_fora", #<BigDecimal:50923b0,'0.65655E3',18(18)>]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 1005ms (Views: 0.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/cities.json" for 127.0.0.1 at 2017-04-05 16:20:22 -0300
+Processing by CitiesController#index as JSON
+  Rendering cities/index.json.jbuilder
+  [1m[36mCity Load (0.8ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL[0m
+  Rendered cities/index.json.jbuilder (6.1ms)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cities.json" for 127.0.0.1 at 2017-04-05 16:54:12 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CitiesController#index as JSON
+  Rendering cities/index.json.jbuilder
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL[0m
+  Rendered cities/index.json.jbuilder (34.0ms)
+Completed 200 OK in 62ms (Views: 33.6ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/cities/1.json" for 127.0.0.1 at 2017-04-05 16:54:19 -0300
+Processing by CitiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mCity Load (1.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cities/show.json.jbuilder
+  Rendered cities/show.json.jbuilder (1.5ms)
+Completed 200 OK in 23ms (Views: 15.8ms | ActiveRecord: 1.2ms)
+=======
   Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.5ms)
   Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
@@ -1875,5 +2349,6 @@ Processing by CoursesController#index as JSON
   Rendering courses/index.json.jbuilder
   Rendered courses/index.json.jbuilder (1.9ms)
 Completed 200 OK in 21ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+>>>>>>> release/Release-Colleges
 
 

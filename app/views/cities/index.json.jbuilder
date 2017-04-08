@@ -1,4 +1,4 @@
-json.courses @courses do |c|
-    json.id c.id
-    json.name c.combo
+json.cities @cities do |city|
+    json.id city.id
+    json.name city.name
 end

@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20170406232832) do
     t.decimal  "aluguel_fora"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_cities_on_deleted_at", using: :btree
-  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
