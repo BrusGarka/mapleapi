@@ -18,6 +18,6 @@ class CoursesController < ApplicationController
 
     private
         def course_params
-            params.permit(:name, :school, :semesters,  :price,  :degree, :city_id)
+            params.permit(:name, :school, :semesters,  :price,  :degree, :cities_id)
         end
 end
