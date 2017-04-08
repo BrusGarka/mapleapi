@@ -1,4 +1,5 @@
 class City < ApplicationRecord
+    has_many :courses
     before_save :sum_costs
 
     def sum_costs
@@ -9,5 +10,6 @@ class City < ApplicationRecord
 
         self.monthly_cost = a
     end
+
 
 end
