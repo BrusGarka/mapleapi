@@ -1869,3 +1869,11 @@ Processing by CitiesController#index as JSON
 Completed 200 OK in 38ms (Views: 6.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/courses.json" for 127.0.0.1 at 2017-04-08 13:22:51 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as JSON
+  Rendering courses/index.json.jbuilder
+  Rendered courses/index.json.jbuilder (1.9ms)
+Completed 200 OK in 21ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
