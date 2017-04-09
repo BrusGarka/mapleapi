@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
 
     def index
-        @courses =  Course.group(:category).pluck(:category)#Course.all.order(:name)
+        @courses =  Course.order(:category).group(:category).pluck(:category)
     end
 
     def show
