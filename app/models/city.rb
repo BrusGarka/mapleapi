@@ -2,6 +2,7 @@ class City < ApplicationRecord
     acts_as_paranoid
     has_many :courses
     before_save :sum_costs
+    belongs_to :province
 
     def sum_costs
         a = 0
