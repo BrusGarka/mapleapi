@@ -3,6 +3,6 @@ class Course < ApplicationRecord
     belongs_to :city
 
     def combo
-        "#{self.name}  (#{self.school} -  #{self.type})"
+        "#{self.name}  (#{self.school} -  #{self.category})"
     end
 end
