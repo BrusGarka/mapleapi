@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409013151) do
+ActiveRecord::Schema.define(version: 20170409020858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,9 @@ ActiveRecord::Schema.define(version: 20170409013151) do
     t.decimal  "health_care"
     t.decimal  "aluguel_fora"
     t.datetime "deleted_at"
+    t.integer  "province_id"
     t.index ["deleted_at"], name: "index_cities_on_deleted_at", using: :btree
+    t.index ["province_id"], name: "index_cities_on_province_id", using: :btree
   end
 
   create_table "courses", force: :cascade do |t|
@@ -48,6 +50,11 @@ ActiveRecord::Schema.define(version: 20170409013151) do
     t.datetime "updated_at", null: false
     t.string   "category"
     t.index ["city_id"], name: "index_courses_on_city_id", using: :btree
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.string "initials"
   end
 
 end
