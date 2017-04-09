@@ -12,7 +12,8 @@ class NumbeoController < ApplicationController
     end
 
     def collectNumbeo
-        url = "https://www.numbeo.com/cost-of-living/in/" + params[:city].capitalize
+        url = "https://www.numbeo.com/cost-of-living/in/" + params[:city]
+        byebug
         doc = Nokogiri::HTML(open(url))
         pathPriceValue = doc.xpath("//*[contains(concat( ' ', @class, ' ' ), concat( ' ', 'priceValue', ' ' ))]")
 
@@ -39,7 +40,7 @@ class NumbeoController < ApplicationController
             restaurante:  (prices[0] * 4) + prices[1] ,
             health_care: 65.0,
             roupas: (prices[43] + prices[44] + prices[45] + prices[46])*0.3,
-            salariomedio: prices[53]
+            salariomedio: prices[53].present? ? prices[53] : 0.0
         ]
     end
 end
