@@ -2352,3 +2352,60 @@ Completed 200 OK in 21ms (Views: 6.4ms | ActiveRecord: 0.0ms)
 >>>>>>> release/Release-Colleges
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProvince (20170409020858)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (25.5ms)[0m  [1m[35mCREATE TABLE "provinces" ("id" serial primary key, "name" character varying, "initials" character varying)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "cities" ADD "province_id" integer[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_cities_on_province_id" ON "cities"  ("province_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170409020858"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mCity Load (1.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "initials") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Ontario"], ["initials", "ON"]]
+  [1m[35m (25.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "initials") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Quebec"], ["initials", "QC"]]
+  [1m[35m (17.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "initials") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nova Scotia"], ["initials", "NS"]]
+  [1m[35m (19.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "initials") VALUES ($1, $2) RETURNING "id"[0m  [["name", "New Brunswick"], ["initials", "NB"]]
+  [1m[35m (14.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.4ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "initials") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Manitoba"], ["initials", "MB"]]
+  [1m[35m (13.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "initials") VALUES ($1, $2) RETURNING "id"[0m  [["name", "British Columbia"], ["initials", "BC"]]
+  [1m[35m (15.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "initials") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Prince Edward Island"], ["initials", "PE"]]
+  [1m[35m (9.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "initials") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Saskatchewan"], ["initials", "SK "]]
+  [1m[35m (23.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "initials") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Alberta"], ["initials", "AB"]]
+  [1m[35m (16.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "provinces" ("name", "initials") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Newfoundland and Labrador"], ["initials", "NL"]]
+  [1m[35m (16.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL[0m
+  [1m[35mSQL (24.8ms)[0m  [1m[33mUPDATE "cities" SET "province_id" = 1 WHERE "cities"."deleted_at" IS NULL[0m
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL ORDER BY "cities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL ORDER BY "cities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProvince Load (1.7ms)[0m  [1m[34mSELECT  "provinces".* FROM "provinces" WHERE "provinces"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
