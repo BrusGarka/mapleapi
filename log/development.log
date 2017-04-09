@@ -2610,3 +2610,79 @@ Migrating to Rename (20170409013151)
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/numbeo" for 127.0.0.1 at 2017-04-08 22:54:02 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NumbeoController#index as HTML
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `capitalize' for nil:NilClass):
+  
+app/controllers/numbeo_controller.rb:6:in `index'
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.1ms)
+Started GET "/numbeo?city=Toronto" for 127.0.0.1 at 2017-04-08 22:54:07 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Toronto"}
+  [1m[36mCity Load (1.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."name" = $1 LIMIT $2[0m  [["name", "Toronto"], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 2.3ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/numbeo?city=Richmond-Hill-Canada" for 127.0.0.1 at 2017-04-08 22:54:35 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Richmond-Hill-Canada"}
+  [1m[36mCity Load (1.5ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."name" = $1 LIMIT $2[0m  [["name", "Richmond-hill-canada"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 841ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `sum' for nil:NilClass):
+  
+app/controllers/numbeo_controller.rb:33:in `prepare_params'
+app/controllers/numbeo_controller.rb:8:in `index'
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.1ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (40.2ms)
+Started GET "/numbeo?city=Richmond-Hill-Canada" for 127.0.0.1 at 2017-04-08 22:55:41 -0300
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Richmond-Hill-Canada"}
+  [1m[36mCity Load (1.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."name" = $1 LIMIT $2[0m  [["name", "Richmond-hill-canada"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 164584ms (ActiveRecord: 2.6ms)
+
+
+  
+NoMethodError (undefined method `sum' for nil:NilClass):
+  
+app/controllers/numbeo_controller.rb:34:in `prepare_params'
+app/controllers/numbeo_controller.rb:8:in `index'
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.8ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.8ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.5ms)
+Started GET "/numbeo?city=Richmond-Hill-Canada" for 127.0.0.1 at 2017-04-08 22:58:47 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NumbeoController#index as HTML
+  Parameters: {"city"=>"Richmond-Hill-Canada"}
+  [1m[36mCity Load (1.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."name" = $1 LIMIT $2[0m  [["name", "Richmond-hill-canada"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "aluguel_centro", "busao", "mercado", "energia", "internet", "academia", "role", "roupas", "salariomedio", "created_at", "updated_at", "monthly_cost", "mobile", "restaurante", "health_care", "aluguel_fora") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["name", "Richmond-hill-canada"], ["aluguel_centro", #<BigDecimal:441fb28,'0.1425E4',9(18)>], ["busao", #<BigDecimal:441fb00,'0.13E3',9(18)>], ["mercado", #<BigDecimal:441fad8,'0.41532E3',18(36)>], ["energia", #<BigDecimal:441fab0,'0.17506E3',18(18)>], ["internet", #<BigDecimal:441fa88,'0.55E2',9(18)>], ["academia", #<BigDecimal:441fa60,'0.585E2',18(18)>], ["role", #<BigDecimal:441fa38,'0.52E2',9(27)>], ["roupas", #<BigDecimal:441fa10,'0.91155E2',18(36)>], ["salariomedio", #<BigDecimal:441f9e8,'0.0',9(9)>], ["created_at", 2017-04-09 01:59:03 UTC], ["updated_at", 2017-04-09 01:59:03 UTC], ["monthly_cost", #<BigDecimal:441cae0,'0.2402035E4',18(27)>], ["mobile", #<BigDecimal:441f8f8,'0.29E0',9(18)>], ["restaurante", #<BigDecimal:441f8a8,'0.12E3',9(18)>], ["health_care", #<BigDecimal:441f808,'0.65E2',9(36)>], ["aluguel_fora", #<BigDecimal:441f588,'0.1175E4',9(18)>]]
+  [1m[35m (50.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 15291ms (Views: 1.1ms | ActiveRecord: 58.5ms)
+
+

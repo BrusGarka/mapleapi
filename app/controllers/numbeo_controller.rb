@@ -13,7 +13,6 @@ class NumbeoController < ApplicationController
 
     def collectNumbeo
         url = "https://www.numbeo.com/cost-of-living/in/" + params[:city]
-        byebug
         doc = Nokogiri::HTML(open(url))
         pathPriceValue = doc.xpath("//*[contains(concat( ' ', @class, ' ' ), concat( ' ', 'priceValue', ' ' ))]")
 
