@@ -2873,3 +2873,53 @@ Processing by ProvincesController#index as JSON
 Completed 200 OK in 56ms (Views: 46.2ms | ActiveRecord: 7.0ms)
 
 
+Started GET "/courses.json" for 127.0.0.1 at 2017-04-09 00:38:56 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as JSON
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "courses"."category" FROM "courses" GROUP BY "courses"."category"[0m
+  Rendering courses/index.json.jbuilder
+  Rendered courses/index.json.jbuilder (27.5ms)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 8.5ms)
+
+
+  
+ActionView::Template::Error (PG::UndefinedColumn: ERROR:  column cities.category does not exist
+LINE 1: ... "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."...
+                                                             ^
+: SELECT "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."category" = $1):
+    1: json.categories @courses do |category|
+    2:     json.category category
+    3:     json.courses City.where(category: category) do |course|
+    4:         json.(course, :id, :name)
+    5:     end
+    6: end
+  
+app/views/courses/index.json.jbuilder:3:in `block in _app_views_courses_index_json_jbuilder__2485333356369721248_30865440'
+app/views/courses/index.json.jbuilder:1:in `_app_views_courses_index_json_jbuilder__2485333356369721248_30865440'
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.0ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendering /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/maia/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (42.7ms)
+Started GET "/courses.json" for 127.0.0.1 at 2017-04-09 00:39:19 -0300
+Processing by CoursesController#index as JSON
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "courses"."category" FROM "courses" GROUP BY "courses"."category"[0m
+  Rendering courses/index.json.jbuilder
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."category" = $1[0m  [["category", "eitaaa"]]
+  Rendered courses/index.json.jbuilder (42.5ms)
+Completed 200 OK in 50ms (Views: 41.6ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/courses.json" for 127.0.0.1 at 2017-04-09 00:39:46 -0300
+Processing by CoursesController#index as JSON
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "courses"."category" FROM "courses" GROUP BY "courses"."category"[0m
+  Rendering courses/index.json.jbuilder
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."category" = $1[0m  [["category", "eitaaa"]]
+  [1m[36mCity Load (2.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."deleted_at" IS NULL AND "cities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered courses/index.json.jbuilder (45.0ms)
+Completed 200 OK in 50ms (Views: 44.5ms | ActiveRecord: 4.2ms)
+
+
