@@ -1,6 +1,7 @@
 class CitiesController < ApplicationController
     def index
-        @cities =  City.all.order(:name)
+        @cities =   City.joins(:province)
+                                .order("provinces.name, cities.name")
     end
 
     def show
