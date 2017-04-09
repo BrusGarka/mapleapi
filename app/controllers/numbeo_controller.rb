@@ -39,7 +39,8 @@ class NumbeoController < ApplicationController
             restaurante:  (prices[0] * 4) + prices[1] ,
             health_care: 65.0,
             roupas: (prices[43] + prices[44] + prices[45] + prices[46])*0.3,
-            salariomedio: prices[53].present? ? prices[53] : 0.0
+            salariomedio: prices[53].present? ? prices[53] : 0.0,
+            province_id: params[:province].present? ? Province.find_by(initials: params[:province]).id : 1
         ]
     end
 end
