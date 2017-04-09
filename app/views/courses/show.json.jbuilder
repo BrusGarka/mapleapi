@@ -1,4 +1,4 @@
-json.(@course, :name,  :school, :semesters,  :price,  :degree)
+json.(@course, :name,  :school, :semesters,  :price,  :degree, :type)
 json.city do
     json.(@course.city, :id, :name,
      :aluguel_centro,  :aluguel_fora,  :energia, :mercado,
